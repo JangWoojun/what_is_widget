@@ -15,6 +15,12 @@ void main() {
             },)
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print("Bug");
+          },
+          child: Icon(Icons.bug_report),
+        ),
         body: TextWidget()),
   ));
 }
