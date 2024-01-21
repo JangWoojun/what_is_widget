@@ -3,42 +3,40 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
-        appBar: AppBar(
-          title: Text("this is appbar"),
-          centerTitle: false,
-          actions: [
-            IconButton(icon: Icon(Icons.home), onPressed: () {
-              print("home");
-            },),
-            IconButton(icon: Icon(Icons.play_arrow), onPressed: () {
-              print("play");
-            },)
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print("Bug");
-          },
-          child: Icon(Icons.bug_report),
-        ),
-        body: TextWidget()),
+        appBar: AppBar(title: const Text("container study")),
+        body: const CustomContainer()),
   ));
 }
 
-class TextWidget extends StatelessWidget {
-  const TextWidget({super.key});
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return Container(
+      width: double.infinity,
+      height: 300,
+      decoration: BoxDecoration(
+          color: Color(0xFF16CE4A),
+          border:
+              Border.all(color: Colors.red, width: 5, style: BorderStyle.solid),
+          borderRadius: BorderRadius.circular(40),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.red.withOpacity(0.3),
+                offset: Offset(6, 6),
+                blurRadius: 10,
+                spreadRadius: 10),
+            BoxShadow(
+                color: Colors.blue.withOpacity(0.3),
+                offset: Offset(-6, -6),
+                blurRadius: 10,
+                spreadRadius: 10)
+          ]),
+      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: Center(
-        child: Text(
-          "Hello Flutter",
-          style: TextStyle(
-            fontSize: 40,
-            color: Colors.black,
-          ),
-        ),
+        child: Container(color: Colors.yellow, child: Text("hello container")),
       ),
     );
   }
